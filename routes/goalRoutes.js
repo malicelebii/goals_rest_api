@@ -1,28 +1,16 @@
 import express from "express";
+import { createGoal, deleteGoal, getGoal, getGoals, updateGoal } from "../controllers/goalController.js";
 
 const router = express.Router();
 
-router.get("/goals", async (req, res) => {
-  res.status(200).json({ message: "Get Goals" });
-});
+router.get("/goals", getGoals);
 
-router.get("/goals/:goalId", async (req, res) => {
-  res
-    .status(200)
-    .json({ message: "Get Goal by Id", goalId: req.params.goalId });
-});
+router.get("/goals/:goalId", getGoal);
 
-router.post("/goals", async (req, res) => {
-  res.status(200).json({ message: "Create Goal" });
-});
+router.post("/goals", createGoal);
 
-router.put("/goals/:goalId", async (req, res) => {
-  res.status(200).json({ message: "Update Goal by Id" });
-});
+router.put("/goals/:goalId", updateGoal);
 
-router.delete("/goals/:goalId", async (req, res) => {
-  res.status(200).json({ message: "Delete a Goal by Id" });
-});
-
+router.delete("/goals/:goalId", deleteGoal);
 
 export default router;
