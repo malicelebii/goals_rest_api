@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const Goal = mongoose.Schema(
+const goalSchema = mongoose.Schema(
   {
     text: {
       type: String,
@@ -10,4 +10,4 @@ const Goal = mongoose.Schema(
   { timestamps: true }
 );
 
-export default Goal;
+export default mongoose.model("Goal", goalSchema);
