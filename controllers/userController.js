@@ -57,3 +57,9 @@ export const login = asyncHandler(async (req, res) => {
 
   res.json({ id: user.id, name: user.name, email, token: accessToken });
 });
+
+export const getMe = asyncHandler(async (req, res) => {
+  const { id, name, email } = await User.findById(req.user.id);
+
+  res.status(200).json({ id, name, email });
+});
