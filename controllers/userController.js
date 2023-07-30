@@ -10,7 +10,7 @@ export const registerUser = asyncHandler(async (req, res) => {
     throw new Error("Please fill the all fields");
   }
 
-  const userExist = User.findOne({ email });
+  const userExist = await User.findOne({ email });
 
   if (userExist) {
     throw new Error("This email is already taken");
