@@ -10,14 +10,14 @@ import { protect } from "../middlewares/auth.js";
 
 const router = express.Router();
 
-router.get("/goals", protect, getGoals);
+router.get("/", protect, getGoals);
 
-router.get("/goals/:goalId", protect, getGoal);
+router.get("/:goalId", protect, getGoal);
 
-router.post("/goals", protect, createGoal);
+router.post("/", protect, createGoal);
 
-router.put("/goals/:goalId", protect, updateGoal);
+router.put("/:goalId", protect, updateGoal);
 
-router.delete("/goals/:goalId", protect, deleteGoal);
+router.delete("/:goalId", protect, deleteGoal);
 
 export default router;
